@@ -1,557 +1,314 @@
-// - Dark Gray: hsl(0, 0%, 63%)
-// - Black: hsl(0, 0%, 0%)
-// - White: hsl(0, 0%, 100%)
-// - Very Dark Gray: hsl(0, 0%, 27%)
+@import "./media-queries";
+@import "./colors";
+@import "./globals";
 
-$darkGray: hsl(0, 0%, 63%);
-$veryDarkGray: hsl(0, 0%, 27%);
-
-* {
-	margin: 0%;
-	padding: 0%;
-	box-sizing: border-box;
-}
-
-html {
-	font-size: 62.5%;
-	font-family: "Spartan", sans-serif;
-}
-
-body {
-	transition: all 200ms ease;
-}
-
-.burger-menu {
-	display: none;
-}
-.curtain {
-	display: none;
-}
-
-.home-container {
-	height: 100vh;
-	width: 100%;
-	.showcase-slider-container {
-		width: 100%;
-		height: 65%;
+.home-header-container {
+	@include desktop {
 		display: flex;
-		align-items: center;
-		.showcase-nav-container {
+		height: 534px;
+	}
+	.header-bg {
+		height: 360px;
+		width: 100%;
+		background-image: url("../images/mobile-image-hero-1.jpg");
+		background-repeat: no-repeat;
+		background-size: 100%;
+		position: relative;
+
+		background-color: lightblue;
+		@include smallPhone {
+			background-size: cover;
+		}
+
+		@include tablet {
 			background-image: url("../images/desktop-image-hero-1.jpg");
-			background-size: 100%;
-			background-repeat: no-repeat;
-			height: 100%;
-			flex: 3;
-			min-width: 696px;
-
-			.nav-container {
-				width: 60%;
-				height: 80px;
-				background-color: transparent;
-				margin-left: 60px;
-				display: flex;
-				align-items: center;
-				.navbar {
-					display: flex;
-					list-style: none;
-					width: 100%;
-					.hamburger {
-						display: none;
-					}
-					li {
-						margin-left: 40px;
-						a {
-							font-size: 1.2rem;
-							text-decoration: none;
-							color: white;
-							font-weight: 600;
-						}
-					}
-				}
-			}
+			background-position: center;
 		}
-		@keyframes header {
-			0% {
-				opacity: 1;
-			}
-			100% {
-				opacity: 0.5;
-			}
-		}
-		.slider-container {
-			flex: 2;
-			height: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			position: relative;
-			.slider-text {
-				transform: translateY(-20px);
-				height: auto;
-				width: 70%;
-				min-width: 380px;
-				h1 {
-					font-size: 3.4rem;
-					margin-bottom: 15px;
-					font-weight: 700;
-					color: $veryDarkGray;
-				}
-				p {
-					font-size: 1.2rem;
-					margin-bottom: 20px;
-					line-height: 2rem;
-					font-weight: 500;
-					color: $darkGray;
-				}
-				a {
-					text-transform: uppercase;
-					letter-spacing: 10px;
-					font-size: 1.6rem;
-					text-decoration: none;
-					display: flex;
-					align-items: center;
-					font-weight: 600;
-					color: $veryDarkGray;
 
-					svg {
-						margin-left: 20px;
-					}
-				}
-			}
-			@keyframes headerSub {
-				0% {
-					opacity: 1;
-				}
-				100% {
-					opacity: 0;
-				}
-			}
-			.nav-buttons {
-				position: absolute;
-				bottom: 0%;
-				left: 0%;
-				width: 100%;
-				button {
-					background-color: black;
-					border: none;
-					cursor: pointer;
-					height: 70px;
-					width: 14.3%;
-				}
-				button:nth-child(2) {
-					margin-left: -3px;
-				}
-			}
+		@include desktop {
+			height: 534px;
+			background-position: initial;
+			background-size: cover;
 		}
-	}
-	.about-container {
-		height: 35%;
-		width: 100%;
-		display: flex;
-		align-items: center;
-		.left-img {
-			background-image: url("../images/image-about-dark.jpg");
-			background-size: 100%;
-			background-repeat: no-repeat;
-			height: 100%;
-			flex: 2;
-			min-width: 384px;
-		}
-		.about {
-			height: 100%;
-			flex: 3;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			.about-text {
-				width: 85%;
-				h6 {
-					font-size: 1.2rem;
-					margin-bottom: 10px;
-					text-transform: uppercase;
-					letter-spacing: 5px;
-					font-weight: 700;
-					color: $veryDarkGray;
-				}
 
-				p {
-					font-size: 1.2rem;
-					line-height: 2rem;
-					font-weight: 500;
-					color: $darkGray;
-				}
-			}
-		}
-		.right-img {
-			background-image: url("../images/image-about-light.jpg");
-			background-size: 100%;
-			background-repeat: no-repeat;
-			height: 100%;
-			min-width: 384px;
-
-			flex: 2;
-		}
-	}
-}
-
-@media screen and (max-width: 1086px) {
-	body {
-		overflow-x: hidden;
-	}
-
-	.home-container {
-		height: 100vh;
-		width: 100%;
-		.showcase-slider-container {
+		&__mobile-nav {
+			background-color: rgb(255, 255, 255);
 			width: 100%;
+			height: 111px;
 			display: flex;
 			align-items: center;
-			flex-direction: column;
-			height: 100%;
-			.showcase-nav-container {
-				background-image: url("../images/desktop-image-hero-1.jpg");
-				background-size: 100%;
-				background-repeat: no-repeat;
-				height: 500px;
-				flex: 1;
-				width: 100%;
-				min-width: 300px;
-				.nav-container {
-					width: 60%;
-					height: 80px;
-					background-color: transparent;
-					margin-left: 60px;
-					display: flex;
-					align-items: center;
-					.navbar {
-						display: flex;
-						list-style: none;
-						width: 100%;
+			position: fixed;
+			z-index: 3;
+			transform: translateY(-100%);
+			transition: 300ms ease-in-out;
 
-						li {
-							margin-left: 40px;
-							a {
-								font-size: 1.2rem;
-								text-decoration: none;
-								color: white;
-								font-weight: 600;
-							}
-						}
-					}
-				}
+			@include desktop {
+				display: none;
 			}
 
-			.slider-container {
-				padding: 50px 0px;
-				flex: 1;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				position: relative;
-				.slider-text {
-					transform: translateY(-20px);
-					height: auto;
-					width: 70%;
-					min-width: 300px;
-
-					h1 {
-						font-size: 3.4rem;
-						margin-bottom: 15px;
-						font-weight: 700;
-						color: $veryDarkGray;
-					}
-					p {
-						font-size: 1.2rem;
-						margin-bottom: 20px;
-						line-height: 2rem;
-						font-weight: 500;
-						color: $darkGray;
-					}
-					a {
-						text-transform: uppercase;
-						letter-spacing: 10px;
-						font-size: 1.6rem;
-						text-decoration: none;
-						display: flex;
-						align-items: center;
-						font-weight: 600;
-						color: $veryDarkGray;
-
-						svg {
-							margin-left: 20px;
-						}
-					}
-				}
-
-				.nav-buttons {
-					position: absolute;
-					bottom: 0%;
-					left: 72%;
-					width: 100%;
-					button {
-						background-color: black;
-						border: none;
-						cursor: pointer;
-						height: 70px;
-						width: 14.3%;
-					}
-					button:nth-child(2) {
-						margin-left: -3px;
-					}
-				}
-			}
-		}
-		.about-container {
-			height: 100vh;
-			width: 100%;
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-			.left-img {
-				background-image: url("../images/image-about-dark.jpg");
-				background-size: 100%;
-				background-repeat: no-repeat;
-				height: 100%;
-				flex: 1;
-				min-width: 384px;
-				width: 100%;
-			}
-			.about {
-				height: 100%;
-				flex: 1;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				.about-text {
-					width: 85%;
-					h6 {
-						font-size: 1.2rem;
-						margin-bottom: 10px;
-						text-transform: uppercase;
-						letter-spacing: 5px;
-						font-weight: 700;
-						color: $veryDarkGray;
-					}
-
-					p {
-						font-size: 1.2rem;
-						line-height: 2rem;
-						font-weight: 500;
-						color: $darkGray;
-					}
-				}
-			}
-			.right-img {
-				background-image: url("../images/image-about-light.jpg");
-				background-size: 100%;
-				background-repeat: no-repeat;
-				height: 100%;
-				min-width: 384px;
-
-				flex: 1;
-				width: 100%;
-			}
-		}
-	}
-}
-
-@media screen and (max-width: 415px) {
-	.burger-menu {
-		position: absolute;
-		top: 0%;
-		height: 80px;
-		width: 100%;
-		align-items: center;
-		background-color: white;
-		z-index: 3;
-		ul {
-			display: flex;
-			list-style: none;
-			width: 90%;
-			margin: auto;
-			.close {
+			&__close-mobile-nav {
 				margin-right: auto;
 			}
-			li {
-				padding-left: 30px;
-				a {
-					font-size: 1.2rem;
-					text-decoration: none;
-					color: rgb(0, 0, 0);
+
+			ul {
+				display: flex;
+				list-style-type: none;
+				width: 100%;
+				margin: 0px 24px;
+
+				li {
+					margin-left: 31px;
+
+					a {
+						text-decoration: none;
+						color: black;
+						font-size: 1.2rem;
+					}
 				}
 			}
 		}
-	}
-	.curtain {
-		position: fixed;
-		height: 100vh;
-		width: 100%;
-		background-color: rgba(0, 0, 0, 0.589);
-		z-index: 2;
-	}
-	.home-container {
-		height: 100vh;
-		width: 100%;
 
-		.showcase-slider-container {
+		&__navbar {
+			height: 111px;
 			width: 100%;
 			display: flex;
 			align-items: center;
-			flex-direction: column;
-			height: 85%;
-			.showcase-nav-container {
-				background-image: url("../images/desktop-image-hero-1.jpg");
-				background-size: 100%;
-				background-repeat: no-repeat;
-				height: 500px;
-				flex: 1;
-				width: 100%;
-				min-width: 300px;
-				.nav-container {
-					width: 100%;
-					height: 80px;
-					background-color: transparent;
-					margin-left: 0px;
+			justify-content: center;
+
+			@include desktop {
+				justify-content: flex-start;
+			}
+
+			&__menu-btn {
+				position: absolute;
+				left: 0%;
+				margin-left: 23px;
+
+				@include desktop {
+					display: none;
+				}
+			}
+
+			&__logo {
+				@include desktop {
+					margin-left: 63px;
+					margin-right: 54px;
+				}
+			}
+
+			ul {
+				display: none;
+
+				@include desktop {
 					display: flex;
-					align-items: center;
-					.navbar {
-						display: flex;
-						list-style: none;
-						width: 100%;
-						justify-content: center;
-						position: relative;
-						.hamburger {
-							display: block;
-							position: absolute;
-							left: 5%;
-						}
-						li {
-							margin-left: 40px;
-							display: none;
-							a {
-								font-size: 1.2rem;
-								text-decoration: none;
-								color: white;
-								font-weight: 600;
+					list-style-type: none;
+
+					li {
+						margin-right: 32px;
+						a {
+							text-decoration: none;
+							color: white;
+							font-size: 1.2rem;
+							padding: 1rem 0rem;
+
+							background-image: linear-gradient(white);
+							background-repeat: no-repeat;
+							background-size: 0% 3px;
+							background-position: bottom;
+							transition: 100ms ease;
+
+							&:hover {
+								background-size: 50% 3px;
 							}
 						}
 					}
 				}
 			}
-
-			.slider-container {
-				padding: 40px 0px;
-				flex: 1;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				position: relative;
-				.slider-text {
-					transform: translateY(-20px);
-					height: auto;
-					width: 90%;
-					min-width: 300px;
-
-					h1 {
-						margin-top: 20px;
-						font-size: 2.4rem;
-						margin-bottom: 15px;
-						font-weight: 700;
-						color: $veryDarkGray;
-					}
-					p {
-						font-size: 1.2rem;
-						margin-bottom: 20px;
-						line-height: 2rem;
-						font-weight: 500;
-						color: $darkGray;
-					}
-					a {
-						text-transform: uppercase;
-						letter-spacing: 10px;
-						font-size: 1.6rem;
-						text-decoration: none;
-						display: flex;
-						align-items: center;
-						font-weight: 600;
-						color: $veryDarkGray;
-
-						svg {
-							margin-left: 20px;
-						}
-					}
-				}
-
-				.nav-buttons {
-					position: absolute;
-					bottom: 100%;
-					left: 72%;
-					width: 100%;
-					button {
-						background-color: black;
-						border: none;
-						cursor: pointer;
-						height: 70px;
-						width: 14.3%;
-					}
-					button:nth-child(2) {
-						margin-left: -3px;
-					}
-				}
-			}
 		}
-		.about-container {
-			height: 100vh;
-			width: 100%;
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-			.left-img {
-				background-image: url("../images/image-about-dark.jpg");
-				background-size: 100%;
-				background-repeat: no-repeat;
-				height: 100%;
-				flex: 1;
-				min-width: 384px;
-				width: 100%;
+
+		&__nav-btn {
+			position: absolute;
+			bottom: 0%;
+			right: 0%;
+			@include desktop {
+				transform: translateX(97.1%);
+				width: 20.5%;
 			}
-			.about {
-				height: 100%;
-				flex: 1;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				.about-text {
-					padding: 50px 0px;
+			button {
+				background-color: black;
+				border: none;
+				padding: 1.6rem 2.2rem;
+				cursor: pointer;
+				transition: 200ms ease;
+				@include desktop {
+					// padding: 2.7rem 3.5rem;
+					width: 49%;
+					height: 80px;
+				}
 
-					width: 90%;
-					h6 {
-						font-size: 1.2rem;
-						margin-bottom: 10px;
-						text-transform: uppercase;
-						letter-spacing: 5px;
-						font-weight: 700;
-						color: $veryDarkGray;
-					}
-
-					p {
-						font-size: 1.2rem;
-						line-height: 2rem;
-						font-weight: 500;
-						color: $darkGray;
-					}
+				&:hover {
+					background-color: $grayDark;
 				}
 			}
-			.right-img {
-				background-image: url("../images/image-about-light.jpg");
-				background-size: 100%;
-				background-repeat: no-repeat;
-				height: 100%;
-				min-width: 384px;
 
-				flex: 1;
-				width: 100%;
+			#prev-btn {
+				transform: translatex(3px);
 			}
 		}
 	}
+
+	.nav-page {
+		height: 409px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+
+		@include tablet {
+			height: 300px;
+		}
+
+		@include desktop {
+			width: 80%;
+			height: 100%;
+		}
+
+		&__text {
+			margin: 0px 31px;
+
+			@include desktop {
+				margin: 119px 99px 154px 99px;
+			}
+
+			h1 {
+				font-size: 2.8rem;
+				font-weight: 600;
+				@include tablet {
+					font-size: 3.8rem;
+				}
+				@include desktop {
+					font-size: 4rem;
+				}
+			}
+
+			p {
+				font-size: 1.2rem;
+				line-height: 1.5;
+				padding: 17px 0px 53px 0px;
+				color: $grayDark;
+
+				@include desktop {
+					line-height: 1.6;
+				}
+			}
+
+			&__link {
+				display: flex;
+				align-items: center;
+				cursor: pointer;
+
+				a {
+					font-size: 1.4rem;
+					color: black;
+					text-decoration: none;
+					text-transform: uppercase;
+					letter-spacing: 10px;
+					margin-right: 30px;
+					transition: 200ms ease;
+				}
+
+				svg {
+					path {
+						transition: 200ms ease;
+					}
+				}
+
+				&:hover a {
+					color: $grayDark;
+				}
+
+				&:hover svg path {
+					fill: $grayDark;
+				}
+			}
+		}
+	}
+}
+
+.home-footer-container {
+	@include desktop {
+		display: flex;
+		height: 266px;
+	}
+	.dark-img {
+		height: 239px;
+		width: 100%;
+		background-image: url("../images/image-about-dark.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		@include desktop {
+			height: 100%;
+		}
+	}
+
+	.about {
+		height: 303px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+
+		@include desktop {
+			height: 100%;
+		}
+
+		&__text {
+			margin: 0px 31px;
+			h6 {
+				font-size: 1.2rem;
+				text-transform: uppercase;
+				letter-spacing: 6px;
+
+				@include tablet {
+					font-size: 2.2rem;
+				}
+
+				@include desktop {
+					font-size: 1.2rem;
+				}
+			}
+			p {
+				padding: 18px 0px;
+				font-size: 1.2rem;
+				line-height: 1.5;
+				color: $grayDark;
+
+				@include desktop {
+					line-height: 1.6;
+				}
+			}
+		}
+	}
+
+	.light-img {
+		height: 226px;
+		width: 100%;
+
+		background-image: url("../images/image-about-light.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		@include desktop {
+			height: 100%;
+		}
+	}
+}
+
+.curtain {
+	height: 100vh;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.295);
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	display: none;
 }
